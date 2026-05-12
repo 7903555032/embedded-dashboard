@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embedded Firmware Engineer Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Embedded / Firmware Engineer Dashboard</h1>
+    <p>Track your roadmap, projects, skills, debugging and interview preparation.</p>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('daily')">Daily Tracker</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('roadmap')">Roadmap</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('resources')">Resources</button>
+    <button onclick="showSection('interview')">Interview Prep</button>
+</nav>
+
+<main>
+
+<section id="home" class="active">
+    <div class="card">
+        <h2>Current Mission</h2>
+        <p>Become a real embedded/firmware engineer through consistent learning, debugging, and implementation.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Total Study Hours</h3>
+            <h1 id="totalHours">0</h1>
+        </div>
+
+        <div class="card">
+            <h3>Projects Completed</h3>
+            <h1 id="completedProjects">0</h1>
+        </div>
+
+        <div class="card">
+            <h3>Current Focus</h3>
+            <p>Embedded C + Protocols + Debugging</p>
+        </div>
+    </div>
+</section>
+
+<section id="daily">
+    <div class="card">
+        <h2>Daily Tracker</h2>
+
+        <label>Study Hours</label>
+        <input type="number" id="studyHours" placeholder="Enter hours">
+
+        <label>Today's Topic</label>
+        <input type="text" id="todayTopic" placeholder="Example: UART">
+
+        <label>Debugging Notes</label>
+        <textarea id="debugNotes" rows="5" placeholder="What failed? What did you fix?"></textarea>
+
+        <button onclick="saveDaily()">Save Daily Progress</button>
+    </div>
+
+    <div class="card">
+        <h2>Saved Progress</h2>
+        <div id="dailyLogs"></div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="card">
+        <h2>Skill Progress</h2>
+
+        <div class="skill">
+            <label>C Programming</label>
+            <progress value="25" max="100"></progress>
+        </div>
+
+        <div class="skill">
+            <label>Electronics</label>
+            <progress value="20" max="100"></progress>
+        </div>
+
+        <div class="skill">
+            <label>ESP32</label>
+            <progress value="40" max="100"></progress>
+        </div>
+
+        <div class="skill">
+            <label>UART / SPI / I2C</label>
+            <progress value="30" max="100"></progress>
+        </div>
+
+        <div class="skill">
+            <label>RTOS</label>
+            <progress value="10" max="100"></progress>
+        </div>
+
+        <div class="skill">
+            <label>Debugging</label>
+            <progress value="15" max="100"></progress>
+        </div>
+    </div>
+</section>
+
+<section id="roadmap">
+    <div class="card">
+        <h2>Roadmap Phases</h2>
+
+        <ul class="roadmap">
+            <li>Phase 1 → C Programming</li>
+            <li>Phase 2 → Electronics + Embedded Basics</li>
+            <li>Phase 3 → ESP32 + STM32 Fundamentals</li>
+            <li>Phase 4 → UART / SPI / I2C / CAN</li>
+            <li>Phase 5 → Real Firmware Development</li>
+            <li>Phase 6 → FreeRTOS</li>
+            <li>Phase 7 → Debugging + Git + Workflow</li>
+            <li>Phase 8 → Linux + Embedded Linux</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="card">
+        <h2>Project Tracker</h2>
+
+        <table>
+            <tr>
+                <th>Project</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>UART Sensor Logger</td>
+                <td>Planned</td>
+            </tr>
+
+            <tr>
+                <td>I2C OLED Dashboard</td>
+                <td>In Progress</td>
+            </tr>
+
+            <tr>
+                <td>ESP32 Health Monitoring</td>
+                <td>Debugging</td>
+            </tr>
+
+            <tr>
+                <td>Drone Flight Controller</td>
+                <td>Future Goal</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="resources">
+    <div class="card">
+        <h2>Best Learning Resources</h2>
+
+        <ul class="links">
+            <li><a href="https://www.youtube.com/@CodeVault" target="_blank">CodeVault - C Programming</a></li>
+            <li><a href="https://www.youtube.com/@PhilsLab" target="_blank">Phil's Lab</a></li>
+            <li><a href="https://www.youtube.com/@BenEater" target="_blank">Ben Eater</a></li>
+            <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank">ESP-IDF Docs</a></li>
+            <li><a href="https://www.freertos.org/" target="_blank">FreeRTOS</a></li>
+            <li><a href="https://fastbitlab.com/" target="_blank">FastBitLab</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="interview">
+    <div class="card">
+        <h2>Interview Preparation Checklist</h2>
+
+        <div class="checklist">
+            <label><input type="checkbox"> Explain UART</label>
+            <label><input type="checkbox"> Explain SPI</label>
+            <label><input type="checkbox"> Explain Interrupts</label>
+            <label><input type="checkbox"> Explain PWM</label>
+            <label><input type="checkbox"> Explain Stack vs Heap</label>
+            <label><input type="checkbox"> Explain Volatile Keyword</label>
+            <label><input type="checkbox"> Explain Pull-up Resistors</label>
+            <label><input type="checkbox"> Explain FreeRTOS Tasks</label>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>Embedded Engineer Growth System</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
